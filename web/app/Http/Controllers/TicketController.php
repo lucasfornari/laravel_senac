@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 
 class TicketController extends Controller
@@ -23,5 +24,5 @@ class TicketController extends Controller
     {
         $tickets = Ticket::all();
         return response()->json($tickets);
-    }   
+    }
 }
