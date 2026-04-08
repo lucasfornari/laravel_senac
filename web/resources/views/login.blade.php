@@ -197,7 +197,9 @@
             outline: none;
             transition: border-color var(--transition), box-shadow var(--transition);
             caret-color: var(--border-focus);
+            appearance: none;
             -webkit-appearance: none;
+            -moz-appearance: none;
         }
 
         input::placeholder {
