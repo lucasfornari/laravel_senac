@@ -1,14 +1,19 @@
 <?php
 
-
+use App\Http\Controllers\TicketController;
 use App\Http\Controllers\Web\LoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LoginController::class, 'index'])->name('home');
-Route::post('/login', [LoginController::class, 'login'])->name('login');
-Route::post('/auth', [LoginController::class, 'logout'])->name('auth');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'auth'])->name('auth');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware('auth')->name('dashboard');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+});
+
+Route::get('/chamados', [TicketController::class, 'index'])->name('ticket.index');
