@@ -1,3 +1,4 @@
+use Illuminate\Support\Facades\Route;
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -516,11 +517,6 @@
             audio,
             iframe,
             embed,
-            object {
-                vertical-align: middle;
-                display: block
-            }
-
             img,
             video {
                 max-width: 100%;
